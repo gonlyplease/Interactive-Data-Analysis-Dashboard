@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Interactive Dashboard</title>
+    <!-- Optional: include Bootstrap for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Dashboard</h1>
+      <!-- Display the generated chart -->
+
+      <!-- Simple query form -->
+      <form method="POST" class="mt-4">
+        <div class="form-group">
+          <label for="query">Enter your query:</label>
+          <input type="text" class="form-control" id="query" name="query" placeholder="Which branch sold the most?">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <!-- Display query results if available -->
+      {% if query_result %}
+        <h2 class="mt-4">Query Results</h2>
+        <div>{{ query_result|safe }}</div>
+      {% endif %}
+    </div>
+  </body>
+</html>
