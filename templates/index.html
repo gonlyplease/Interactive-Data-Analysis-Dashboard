@@ -12,7 +12,7 @@
       <!-- Display the generated chart -->
 
       <!-- Simple query form -->
-      <form method="POST" class="mt-4">
+      <form method="POST" class="mt-4" id="myForm" action="/get_plot">
         <div class="form-group">
           <label for="query">Enter your query:</label>
           <input type="text" class="form-control" id="query" name="query" placeholder="Which branch sold the most?">
@@ -21,10 +21,15 @@
       </form>
 
       <!-- Display query results if available -->
-      {% if query_result %}
+      {% if plot_url %}
         <h2 class="mt-4">Query Results</h2>
-        <div>{{ query_result|safe }}</div>
+        <img src={{plot_url}} alt="chart cannot be displayed">
       {% endif %}
-    </div>
   </body>
+  <script>
+    function reset() {
+        document.getElementById("myForm").reset();
+    }
+</script>
 </html>
+
